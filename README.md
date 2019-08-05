@@ -1,4 +1,8 @@
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/jbj097s3ik1y3hwp/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/cryptography-symmetric/branch/master) [![Travis](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric) 
+[![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.Cryptography.Symmetric.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.Cryptography.Symmetric)
+[![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/jbj097s3ik1y3hwp/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/cryptography-symmetric/branch/master)
+[![Travis](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric)
+[![CircleCI](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric) 
 
 # Symmetric Cryptography
 
