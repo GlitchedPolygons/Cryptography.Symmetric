@@ -4,9 +4,9 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <IsPackable>false</IsPackable>
         <Authors />
-        <AssemblyName>ClassLibrary.UnitTests</AssemblyName>
-        <RootNamespace>ClassLibrary.UnitTests</RootNamespace>
-        <PackageId>ClassLibrary.UnitTests</PackageId>
+        <AssemblyName>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</AssemblyName>
+        <RootNamespace>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</RootNamespace>
+        <PackageId>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\ClassLibrary.csproj" />
+      <ProjectReference Include="..\src\Cryptography.Symmetric.csproj" />
     </ItemGroup>
 
 </Project>
