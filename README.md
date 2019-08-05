@@ -1,4 +1,4 @@
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/tkf68xbsdoa1ttfq/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/netstandard2-0-class-lib/branch/master) [![Travis](https://travis-ci.org/GlitchedPolygons/netstandard2.0-class-lib.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/netstandard2.0-class-lib) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/netstandard2.0-class-lib.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/netstandard2.0-class-lib) 
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/jbj097s3ik1y3hwp/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/cryptography-symmetric/branch/master) [![Travis](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric) 
 
 # TO DO
 
