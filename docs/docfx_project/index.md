@@ -1,4 +1,2 @@
-# This is the **HOMEPAGE**.
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
-## Quick Start Notes:
-1. Add images to the *images* folder if the file is referencing an image.
+# Welcome to this API Documentation
+## To get started navigating these docs, click [_here_](api/index.html) and dive in!
