@@ -1,26 +1,22 @@
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/jbj097s3ik1y3hwp/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/cryptography-symmetric/branch/master) [![Travis](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric) 
 
-# TO DO
+# Symmetric Cryptography
 
-## Describe the netstandard2.0 class library here.
+## Encrypting and decrypting data made easy.
 
-Explain how to install it, what dependencies it has, how to quickly get started (maybe link to some more detailed _Getting Started_ guide somewhere else), where to find extensive API docs, how to build from source, stuff like that, etc...
+#### Namespace:  `GlitchedPolygons.Services.Cryptography.Symmetric`
 
-Remember to rename the project and its namespace. Then customize the .csproj file to match your choices (root namespace and assembly name fields). 
+This is a simple, easy-to-use crypto library for C# ([netstandard2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md)).
 
-Finally, consider making your library open source by adding a permissive license such as the [MIT](https://en.wikipedia.org/wiki/MIT_License) or the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) license to your repo root and replacing the placeholders with the corresponding copyright year and author name. You'd then be ready to do the open source community a favor and submit your package to [NuGet](https://nuget.org).
-* Please note: for NuGet packages you need to include the license in your .csproj in some way. You can for example add the following snippet down below to your class library's .csproj file to have the Apache-2.0 license applied to your NuGet package. It's best if that license matches the one you have added to your repository root directory...
+You can encrypt and decrypt `string` and `byte[]` arrays with ease. The interfaces and their implementations are also IoC friendly, so you can inject them into your favorite DI containers (e.g. in [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.2) apps you'd use `services.AddTransient` inside _Startup.cs_).
 
-```
-<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-```
+The `ISymmetricCryptography` interface provides functionality for all basic symmetric crypto operations you need for your C# project. 
+For more information, check out the [API Documentation](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html).
 
-Also, don't forget to `git lfs track` binary files that are project-relevant. 
-* E.g. `git lfs track "*.png"` to use [Git LFS](https://git-lfs.github.com/) for .png files.
-* Edit the .gitignore to your needs
-* Replace the [shields](https://shields.io) at the top of this file with your [Circle CI](https://circleci.com) and [Travis CI](https://travis-ci.org) pipeline URLs.
+**Technology used:**
+* C# ([netstandard2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md))
 
 ---
 
-# IMPORTANT NOTE
-**To clone this template repo correctly, you need to have git lfs installed and set up on your machine!**
+API docs can be found here:
+_[glitchedpolygons.github.io/Cryptography.Symmetric](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html)_
