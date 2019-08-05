@@ -5,18 +5,6 @@
   "files": [
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.Class1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.Class1.html",
-          "hash": "JLlPbMf1Kpyou89NCI84UQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult.yml",
       "output": {
         ".html": {
@@ -63,7 +51,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.html",
-          "hash": "ZXUv1uNHXG6dg8O2iSzEWw=="
+          "hash": "U0pAxDNajivCO8wMgH7axw=="
         }
       },
       "is_incremental": false,
@@ -78,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "OfzvGEa/TLgh36q5kE6q3Q=="
+          "hash": "0mhXCiUBGDRJ7E0s2OSnFg=="
         }
       },
       "is_incremental": false,
@@ -90,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "TF8oAEwSG+1ioy4yYLMhxw=="
+          "hash": "u4oIElsI1GORzNlr2rjtNg=="
         }
       },
       "is_incremental": false,
@@ -105,7 +93,7 @@
           "hash": "n8rU/E5Cg970rrG+fPcEcg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +120,7 @@
           "hash": "YtGmmzDBUt4XMyjbRMjtDg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -151,39 +139,37 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 5,
-          "skipped_file_count": 0
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 3
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 2
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

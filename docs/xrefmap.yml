@@ -7,12 +7,6 @@ references:
   commentId: N:GlitchedPolygons.Services.Cryptography.Symmetric
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric
   nameWithType: GlitchedPolygons.Services.Cryptography.Symmetric
-- uid: GlitchedPolygons.Services.Cryptography.Symmetric.Class1
-  name: Class1
-  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.Class1.html
-  commentId: T:GlitchedPolygons.Services.Cryptography.Symmetric.Class1
-  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.Class1
-  nameWithType: Class1
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult
   name: EncryptionResult
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult.html
