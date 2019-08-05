@@ -4,9 +4,9 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <IsPackable>false</IsPackable>
         <Authors />
+        <PackageId>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</PackageId>
         <AssemblyName>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</AssemblyName>
         <RootNamespace>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</RootNamespace>
-        <PackageId>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,6 +17,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\src\Cryptography.Symmetric.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="TestData\LoremIpsum.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

@@ -14,6 +14,7 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageIconUrl>https://media.githubusercontent.com/media/GlitchedPolygons/NugetIcons/2ad18a76a2ca61702c33a05f497ddbd6c03fcaf9/crypto-icon.png</PackageIconUrl>
         <RepositoryUrl>https://github.com/GlitchedPolygons/Cryptography.Symmetric.git</RepositoryUrl>
+        <PackageTags>c# aes symmetric encryption using password key string byte[] bytes decrypt easy ioc di</PackageTags>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
