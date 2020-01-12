@@ -50,8 +50,13 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 EncryptionResult result;
                 using (var aes = new AesManaged())
                 {
+                    aes.KeySize = 256;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+                    
                     aes.GenerateIV();
                     aes.GenerateKey();
+                    
                     using (ICryptoTransform encryptor = aes.CreateEncryptor())
                     {
                         result = new EncryptionResult
@@ -89,8 +94,13 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 byte[] decryptedBytes;
                 using (var aes = new AesManaged())
                 {
+                    aes.KeySize = 256;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+                    
                     aes.IV = encryptionResult.IV;
                     aes.Key = encryptionResult.Key;
+                    
                     using (ICryptoTransform decryptor = aes.CreateDecryptor())
                     {
                         decryptedBytes = decryptor.TransformFinalBlock(encryptionResult.EncryptedData, 0, encryptionResult.EncryptedData.Length);
@@ -127,9 +137,13 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 using (var rng = new RNGCryptoServiceProvider())
                 {
                     rng.GetBytes(salt);
-
+                    
                     using (var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS))
                     {
+                        aes.KeySize = 256;
+                        aes.Mode = CipherMode.CBC;
+                        aes.Padding = PaddingMode.PKCS7;
+                        
                         aes.IV = rfc.GetBytes(16);
                         aes.Key = rfc.GetBytes(32);
 
@@ -180,8 +194,13 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 using (var aes = new AesManaged())
                 using (var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS))
                 {
+                    aes.KeySize = 256;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+                    
                     aes.IV = rfc.GetBytes(16);
                     aes.Key = rfc.GetBytes(32);
+                    
                     using (ICryptoTransform decryptor = aes.CreateDecryptor())
                     {
                         decryptedBytes = decryptor.TransformFinalBlock(encr, 0, encr.Length);
