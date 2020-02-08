@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0f0ad9f26454940bd0d8cbd74d90331)](https://app.codacy.com/manual/GlitchedPolygons/Cryptography.Symmetric?utm_source=github.com&utm_medium=referral&utm_content=GlitchedPolygons/Cryptography.Symmetric&utm_campaign=Badge_Grade_Settings)
 [![NuGet](https://buildstats.info/nuget/GlitchedPolygons.Services.Cryptography.Symmetric)](https://www.nuget.org/packages/GlitchedPolygons.Services.Cryptography.Symmetric)
 [![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html)
 [![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://github.com/GlitchedPolygons/Cryptography.Symmetric/blob/master/LICENSE)
