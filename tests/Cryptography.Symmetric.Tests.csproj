@@ -17,12 +17,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <IsPackable>false</IsPackable>
         <Authors />
         <PackageId>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</PackageId>
         <AssemblyName>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</AssemblyName>
         <RootNamespace>GlitchedPolygons.Services.Cryptography.Symmetric.Tests</RootNamespace>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>

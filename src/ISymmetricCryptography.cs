@@ -14,6 +14,9 @@
    limitations under the License.
 */
 
+using System;
+using System.Threading.Tasks;
+
 namespace GlitchedPolygons.Services.Cryptography.Symmetric
 {
     /// <summary>
@@ -30,14 +33,15 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
         /// <param name="data">The data to encrypt.</param>
         /// <returns><see cref="EncryptionResult"/> containing the encrypted <c>byte[]</c> array + the used encryption key and iv.</returns>
         EncryptionResult Encrypt(byte[] data);
-
+        
         /// <summary>
-        /// Decrypts the specified <see cref="EncryptionResult"/> that was obtained using <see cref="ISymmetricCryptography.Encrypt(byte[])"/>.
+        /// Encrypts the specified data asynchronously using a randomly generated key and initialization vector.<para> </para>
+        /// Returns an <see cref="EncryptionResult"/> containing the encrypted <c>byte[]</c> array + the used encryption key and iv.
         /// </summary>
-        /// <param name="encryptionResult">The <see cref="EncryptionResult"/> that was obtained using <see cref="ISymmetricCryptography.Encrypt(byte[])"/>.</param>
-        /// <returns>Decrypted <c>byte[]</c> or <c>null</c> if decryption failed.</returns>
-        byte[] Decrypt(EncryptionResult encryptionResult);
-
+        /// <param name="data">The data to encrypt.</param>
+        /// <returns><see cref="EncryptionResult"/> containing the encrypted <c>byte[]</c> array + the used encryption key and iv.</returns>
+        Task<EncryptionResult> EncryptAsync(byte[] data);
+        
         /// <summary>
         /// Encrypts data using a password.
         /// </summary>
@@ -45,7 +49,30 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
         /// <param name="password">The password used to derive the AES key.</param>
         /// <returns>The encrypted data bytes.</returns>
         byte[] EncryptWithPassword(byte[] data, string password);
+        
+        /// <summary>
+        /// Encrypts data asynchronously using a password.
+        /// </summary>
+        /// <param name="data">The data to encrypt.</param>
+        /// <param name="password">The password used to derive the AES key.</param>
+        /// <returns>The encrypted data bytes.</returns>
+        Task<byte[]> EncryptWithPasswordAsync(byte[] data, string password);
 
+        /// <summary>
+        /// Encrypts data asynchronously using a password.
+        /// </summary>
+        /// <param name="data">The data to encrypt asynchronously.</param>
+        /// <param name="password">The password used to derive the AES key.</param>
+        /// <returns>The encrypted data.</returns>
+        Task<string> EncryptWithPasswordAsync(string data, string password);
+
+        /// <summary>
+        /// Decrypts the specified <see cref="EncryptionResult"/> that was obtained using <see cref="ISymmetricCryptography.Encrypt(byte[])"/>.
+        /// </summary>
+        /// <param name="encryptionResult">The <see cref="EncryptionResult"/> that was obtained using <see cref="ISymmetricCryptography.Encrypt(byte[])"/>.</param>
+        /// <returns>Decrypted <c>byte[]</c> or <c>null</c> if decryption failed.</returns>
+        byte[] Decrypt(EncryptionResult encryptionResult);
+        
         /// <summary>
         /// Decrypts data that was encrypted using <see cref="EncryptWithPassword(byte[],string)"/>.
         /// </summary>

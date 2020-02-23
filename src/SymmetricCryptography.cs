@@ -15,8 +15,10 @@
 */
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Security.Cryptography;
 
 namespace GlitchedPolygons.Services.Cryptography.Symmetric
@@ -31,96 +33,65 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
     {
         private const int RFC_ITERATIONS = 16384;
 
-        /// <summary>
-        /// Encrypts the specified data using a randomly generated key and initialization vector.<para> </para>
-        /// An empty <paramref name="data"/> argument will result in an empty <see cref="EncryptionResult"/> being returned (the <see cref="EncryptionResult.EncryptedData"/> and crypto key + iv contained therein will be <c>null</c>).<para> </para>
-        /// Returns an <see cref="EncryptionResult" /> containing the encrypted <c>byte[]</c> array + the used encryption key and iv.
-        /// </summary>
-        /// <param name="data">The data to encrypt.</param>
-        /// <returns><see cref="EncryptionResult" /> containing the encrypted <c>byte[]</c> array + the used encryption key and iv; <c>null</c> if encryption failed; empty <see cref="EncryptionResult"/> with <c>null</c> fields if empty <paramref name="data"/> is passed into the method.</returns>
         public EncryptionResult Encrypt(byte[] data)
         {
             if (data is null || data.Length == 0)
             {
-                return new EncryptionResult {EncryptedData = null, IV = null, Key = null};
+                return EncryptionResult.Empty;
             }
 
-            try
+            using var aes = new AesManaged
             {
-                EncryptionResult result;
-                using (var aes = new AesManaged())
-                {
-                    aes.KeySize = 256;
-                    aes.Mode = CipherMode.CBC;
-                    aes.Padding = PaddingMode.PKCS7;
-                    
-                    aes.GenerateIV();
-                    aes.GenerateKey();
-                    
-                    using (ICryptoTransform encryptor = aes.CreateEncryptor())
-                    {
-                        result = new EncryptionResult
-                        {
-                            IV = aes.IV,
-                            Key = aes.Key,
-                            EncryptedData = encryptor.TransformFinalBlock(data, 0, data.Length)
-                        };
-                    }
-                }
+                KeySize = 256, 
+                Mode = CipherMode.CBC, 
+                Padding = PaddingMode.PKCS7
+            };
 
-                return result;
-            }
-            catch (Exception)
+            aes.GenerateIV();
+            aes.GenerateKey();
+
+            using ICryptoTransform encryptor = aes.CreateEncryptor();
+            
+            return new EncryptionResult
             {
-                return null;
-            }
+                IV = aes.IV,
+                Key = aes.Key,
+                EncryptedData = encryptor.TransformFinalBlock(data, 0, data.Length)
+            };
         }
 
-        /// <summary>
-        /// Decrypts the specified <see cref="EncryptionResult" /> that was obtained using <see cref="Encrypt(System.Byte[])" />.<para> </para>
-        /// Empty or null <paramref name="encryptionResult"/> argument (or the contained <see cref="EncryptionResult.EncryptedData"/> field) results in an empty <c>byte[]</c> array being returned.<para> </para>
-        /// </summary>
-        /// <param name="encryptionResult">The <see cref="EncryptionResult" /> that was obtained using <see cref="Encrypt(System.Byte[])" />.</param>
-        /// <returns>Decrypted <c>byte[]</c> array; <c>null</c> if decryption failed; empty <c>byte[]</c> array if empty <see cref="EncryptionResult"/> argument is passed (with data set to <c>null</c>).</returns>
-        public byte[] Decrypt(EncryptionResult encryptionResult)
+        public async Task<EncryptionResult> EncryptAsync(byte[] data)
         {
-            if (encryptionResult?.EncryptedData is null || encryptionResult.EncryptedData.Length == 0)
+            int dataLength = data?.Length ?? 0;
+            
+            if (dataLength == 0)
             {
-                return Array.Empty<byte>();
+                return EncryptionResult.Empty;
             }
 
-            try
+            using var aes = new AesManaged
             {
-                byte[] decryptedBytes;
-                using (var aes = new AesManaged())
-                {
-                    aes.KeySize = 256;
-                    aes.Mode = CipherMode.CBC;
-                    aes.Padding = PaddingMode.PKCS7;
-                    
-                    aes.IV = encryptionResult.IV;
-                    aes.Key = encryptionResult.Key;
-                    
-                    using (ICryptoTransform decryptor = aes.CreateDecryptor())
-                    {
-                        decryptedBytes = decryptor.TransformFinalBlock(encryptionResult.EncryptedData, 0, encryptionResult.EncryptedData.Length);
-                    }
-                }
+                KeySize = 256,
+                Mode = CipherMode.CBC,
+                Padding = PaddingMode.PKCS7
+            };
 
-                return decryptedBytes;
-            }
-            catch (Exception)
+            aes.GenerateIV();
+            aes.GenerateKey();
+            
+            await using var output = new MemoryStream(dataLength);
+            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
+            
+            await cryptoStream.WriteAsync(data, 0, dataLength);
+
+            return new EncryptionResult
             {
-                return null;
-            }
+                IV = aes.IV,
+                Key = aes.Key,
+                EncryptedData = output.ToArray()
+            };
         }
-
-        /// <summary>
-        /// Encrypts data using a password.
-        /// </summary>
-        /// <param name="data">The data to encrypt.</param>
-        /// <param name="password">The password used to derive the AES key.</param>
-        /// <returns>The encrypted data <c>byte[]</c> array; empty <c>byte[]</c> array if empty <paramref name="data"/> or <paramref name="password"/> parameters are passed; <c>null</c> if encryption failed in some way.</returns>
+        
         public byte[] EncryptWithPassword(byte[] data, string password)
         {
             if (data is null || data.Length == 0 || string.IsNullOrEmpty(password))
@@ -128,100 +99,28 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 return Array.Empty<byte>();
             }
 
-            try
+            byte[] salt = new byte[32];
+            
+            using (var rng = new RNGCryptoServiceProvider())
             {
-                byte[] result;
-                byte[] salt = new byte[32];
-
-                using (var aes = new AesManaged())
-                using (var rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(salt);
-                    
-                    using (var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS))
-                    {
-                        aes.KeySize = 256;
-                        aes.Mode = CipherMode.CBC;
-                        aes.Padding = PaddingMode.PKCS7;
-                        
-                        aes.IV = rfc.GetBytes(16);
-                        aes.Key = rfc.GetBytes(32);
-
-                        using (ICryptoTransform encryptor = aes.CreateEncryptor())
-                        {
-                            result = salt.Concat(encryptor.TransformFinalBlock(data, 0, data.Length)).ToArray();
-                        }
-                    }
-                }
-
-                return result;
+                rng.GetBytes(salt);
             }
-            catch (Exception)
-            {
-                return null;
-            }
+
+            using var aes = new AesManaged();
+            using var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+
+            aes.KeySize = 256;
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+
+            aes.IV = rfc.GetBytes(16);
+            aes.Key = rfc.GetBytes(32);
+
+            using ICryptoTransform encryptor = aes.CreateEncryptor();
+            
+            return salt.Concat(encryptor.TransformFinalBlock(data, 0, data.Length)).ToArray();
         }
-
-        /// <summary>
-        /// Decrypts data that was encrypted using <see cref="EncryptWithPassword(byte[],string)"/>.
-        /// </summary>
-        /// <param name="encryptedBytes">The encrypted data that was returned by <see cref="EncryptWithPassword(byte[],string)"/>.</param>
-        /// <param name="password">The password that was used to encrypt the data.</param>
-        /// <returns>The decrypted <c>byte[]</c> array; <c>null</c> if decryption failed; an empty <c>byte[]</c> array if <paramref name="encryptedBytes"/> or <paramref name="password"/> parameters were <c>null</c> or empty.</returns>
-        public byte[] DecryptWithPassword(byte[] encryptedBytes, string password)
-        {
-            if (encryptedBytes is null || encryptedBytes.Length == 0 || string.IsNullOrEmpty(password))
-            {
-                return Array.Empty<byte>();
-            }
-
-            try
-            {
-                byte[] decryptedBytes;
-                byte[] salt = new byte[32];
-                byte[] encr = new byte[encryptedBytes.Length - 32];
-
-                for (int i = 0; i < salt.Length; i++)
-                {
-                    salt[i] = encryptedBytes[i];
-                }
-
-                for (int i = 0; i < encr.Length; i++)
-                {
-                    encr[i] = encryptedBytes[i + 32];
-                }
-
-                using (var aes = new AesManaged())
-                using (var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS))
-                {
-                    aes.KeySize = 256;
-                    aes.Mode = CipherMode.CBC;
-                    aes.Padding = PaddingMode.PKCS7;
-                    
-                    aes.IV = rfc.GetBytes(16);
-                    aes.Key = rfc.GetBytes(32);
-                    
-                    using (ICryptoTransform decryptor = aes.CreateDecryptor())
-                    {
-                        decryptedBytes = decryptor.TransformFinalBlock(encr, 0, encr.Length);
-                    }
-                }
-
-                return decryptedBytes;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Encrypts data using a password.
-        /// </summary>
-        /// <param name="data">The data to encrypt.</param>
-        /// <param name="password">The password used to derive the AES key.</param>
-        /// <returns>The encrypted data <c>string</c>; an empty <c>string</c> if <paramref name="data"/> or <paramref name="password"/> parameters were <c>null</c> or empty; <c>null</c> is returned if encryption failed in any way.</returns>
-        /// <seealso cref="EncryptWithPassword(byte[],string)"/>
+        
         public string EncryptWithPassword(string data, string password)
         {
             if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(password))
@@ -239,13 +138,146 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             }
         }
 
-        /// <summary>
-        /// Decrypts data that was encrypted using <see cref="EncryptWithPassword(string,string)"/>.
-        /// </summary>
-        /// <param name="data">The encrypted data.</param>
-        /// <param name="password">The password that was used to encrypt the data.</param>
-        /// <returns>The decrypted data <c>string</c>; an empty <c>string</c> if <paramref name="data"/> or <paramref name="password"/> parameters were <c>null</c> or empty; <c>null</c> is returned if decryption failed in any way.</returns>
-        /// <seealso cref="DecryptWithPassword(byte[],string)"/>
+        public async Task<byte[]> EncryptWithPasswordAsync(byte[] data, string password)
+        {
+            int dataLength = data?.Length ?? 0;
+            
+            if (dataLength == 0 || string.IsNullOrEmpty(password))
+            {
+                return Array.Empty<byte>();
+            }
+            
+            byte[] salt = new byte[32];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(salt);
+            }
+
+            using var aes = new AesManaged();
+            using var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+            
+            aes.KeySize = 256;
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+                        
+            aes.IV = rfc.GetBytes(16);
+            aes.Key = rfc.GetBytes(32);
+            
+            await using var output = new MemoryStream(dataLength);
+            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
+
+            await output.WriteAsync(salt, 0, salt.Length);
+            await cryptoStream.WriteAsync(data, 0, dataLength);
+
+            return output.ToArray();
+        }
+
+        public async Task<string> EncryptWithPasswordAsync(string data, string password)
+        {
+            if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(password))
+            {
+                return string.Empty;
+            }
+
+            try
+            {
+                return Convert.ToBase64String(await EncryptWithPasswordAsync(Encoding.UTF8.GetBytes(data), password));
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public byte[] Decrypt(EncryptionResult encryptionResult)
+        {
+            if (encryptionResult?.EncryptedData is null || encryptionResult.EncryptedData.Length == 0)
+            {
+                return Array.Empty<byte>();
+            }
+
+            byte[] result;
+            AesManaged aes = null;
+            ICryptoTransform decryptor = null;
+
+            try
+            {
+                aes = new AesManaged
+                {
+                    KeySize = 256,
+                    Mode = CipherMode.CBC,
+                    Padding = PaddingMode.PKCS7,
+                    IV = encryptionResult.IV,
+                    Key = encryptionResult.Key
+                };
+
+                decryptor = aes.CreateDecryptor();
+
+                result = decryptor.TransformFinalBlock(encryptionResult.EncryptedData, 0, encryptionResult.EncryptedData.Length);
+            }
+            catch
+            {
+                result = null;
+            }
+            finally
+            {
+                aes?.Dispose();
+                decryptor?.Dispose();
+            }
+            
+            return result;
+        }
+        
+        public byte[] DecryptWithPassword(byte[] encryptedBytes, string password)
+        {
+            if (encryptedBytes is null || encryptedBytes.Length <= 32 || string.IsNullOrEmpty(password))
+            {
+                return Array.Empty<byte>();
+            }
+
+            byte[] decryptedBytes;
+            byte[] salt = new byte[32];
+            byte[] encr = new byte[encryptedBytes.Length - 32];
+            
+            for (int i = 0; i < salt.Length; i++)
+            {
+                salt[i] = encryptedBytes[i];
+            }
+
+            for (int i = 0; i < encr.Length; i++)
+            {
+                encr[i] = encryptedBytes[i + 32];
+            }
+
+            var aes = new AesManaged();
+            var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+
+            try
+            {
+                aes.KeySize = 256;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+
+                aes.IV = rfc.GetBytes(16);
+                aes.Key = rfc.GetBytes(32);
+
+                using ICryptoTransform decryptor = aes.CreateDecryptor();
+                
+                decryptedBytes = decryptor.TransformFinalBlock(encr, 0, encr.Length);
+            }
+            catch (Exception)
+            {
+                decryptedBytes = null;
+            }
+            finally
+            {
+                aes.Dispose();
+                rfc.Dispose();
+            }
+
+            return decryptedBytes;
+        }
+        
         public string DecryptWithPassword(string data, string password)
         {
             if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(password))

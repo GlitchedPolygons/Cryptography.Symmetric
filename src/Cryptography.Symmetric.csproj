@@ -17,7 +17,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Glitched Polygons</Authors>
         <AssemblyName>GlitchedPolygons.Services.Cryptography.Symmetric</AssemblyName>
@@ -31,6 +31,7 @@
         <RepositoryUrl>https://github.com/GlitchedPolygons/Cryptography.Symmetric.git</RepositoryUrl>
         <PackageTags>c# aes symmetric encryption using password key string byte[] bytes decrypt easy ioc di</PackageTags>
         <PackageVersion>1.0.1</PackageVersion>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -47,7 +48,7 @@
 </PropertyGroup>
 
 <ItemGroup>
-  <None Include="icon.png" Pack="true" PackagePath="\"/>
+  <None Include="icon.png" Pack="true" PackagePath="\" />
 </ItemGroup>
 
 </Project>

@@ -72,6 +72,6 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
         /// <summary>
         /// Gets a new empty <see cref="EncryptionResult"/> instance.
         /// </summary>
-        public static EncryptionResult Empty => new EncryptionResult {Key = null, IV = null, EncryptedData = null};
+        public static EncryptionResult Empty => new EncryptionResult { Key = null, IV = null, EncryptedData = null };
     }
 }
