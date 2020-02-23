@@ -125,10 +125,12 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             aes.GenerateIV();
             aes.GenerateKey();
             
-            await using var output = new MemoryStream(dataLength);
-            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
+            using ICryptoTransform encryptor = aes.CreateEncryptor();
             
-            await cryptoStream.WriteAsync(data, 0, dataLength);
+            await using var output = new MemoryStream(dataLength);
+            await using var cryptoStream = new CryptoStream(output, encryptor, CryptoStreamMode.Write);
+            
+            await cryptoStream.WriteAsync(data, 0, dataLength).ConfigureAwait(false);
 
             return new EncryptionResult
             {
@@ -148,6 +150,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             }
             
             byte[] salt = new byte[32];
+            
             using (var rng = new RNGCryptoServiceProvider())
             {
                 rng.GetBytes(salt);
@@ -163,11 +166,13 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             aes.IV = rfc.GetBytes(16);
             aes.Key = rfc.GetBytes(32);
             
+            using ICryptoTransform encryptor = aes.CreateEncryptor();
+            
             await using var output = new MemoryStream(dataLength);
-            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
+            await using var cryptoStream = new CryptoStream(output, encryptor, CryptoStreamMode.Write);
 
-            await output.WriteAsync(salt, 0, salt.Length);
-            await cryptoStream.WriteAsync(data, 0, dataLength);
+            await output.WriteAsync(salt, 0, salt.Length).ConfigureAwait(false);
+            await cryptoStream.WriteAsync(data, 0, dataLength).ConfigureAwait(false);
 
             return output.ToArray();
         }
@@ -181,9 +186,11 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
 
             try
             {
-                return Convert.ToBase64String(await EncryptWithPasswordAsync(Encoding.UTF8.GetBytes(data), password));
+                byte[] utf8 = Encoding.UTF8.GetBytes(data);
+                byte[] encryptedBytes = await EncryptWithPasswordAsync(utf8, password).ConfigureAwait(false);
+                return Convert.ToBase64String(encryptedBytes);
             }
-            catch (Exception)
+            catch
             {
                 return null;
             }
