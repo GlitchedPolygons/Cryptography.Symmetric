@@ -60,38 +60,6 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             };
         }
 
-        public async Task<EncryptionResult> EncryptAsync(byte[] data)
-        {
-            int dataLength = data?.Length ?? 0;
-            
-            if (dataLength == 0)
-            {
-                return EncryptionResult.Empty;
-            }
-
-            using var aes = new AesManaged
-            {
-                KeySize = 256,
-                Mode = CipherMode.CBC,
-                Padding = PaddingMode.PKCS7
-            };
-
-            aes.GenerateIV();
-            aes.GenerateKey();
-            
-            await using var output = new MemoryStream(dataLength);
-            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
-            
-            await cryptoStream.WriteAsync(data, 0, dataLength);
-
-            return new EncryptionResult
-            {
-                IV = aes.IV,
-                Key = aes.Key,
-                EncryptedData = output.ToArray()
-            };
-        }
-        
         public byte[] EncryptWithPassword(byte[] data, string password)
         {
             if (data is null || data.Length == 0 || string.IsNullOrEmpty(password))
@@ -136,6 +104,38 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             {
                 return null;
             }
+        }
+        
+        public async Task<EncryptionResult> EncryptAsync(byte[] data)
+        {
+            int dataLength = data?.Length ?? 0;
+            
+            if (dataLength == 0)
+            {
+                return EncryptionResult.Empty;
+            }
+
+            using var aes = new AesManaged
+            {
+                KeySize = 256,
+                Mode = CipherMode.CBC,
+                Padding = PaddingMode.PKCS7
+            };
+
+            aes.GenerateIV();
+            aes.GenerateKey();
+            
+            await using var output = new MemoryStream(dataLength);
+            await using var cryptoStream = new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write);
+            
+            await cryptoStream.WriteAsync(data, 0, dataLength);
+
+            return new EncryptionResult
+            {
+                IV = aes.IV,
+                Key = aes.Key,
+                EncryptedData = output.ToArray()
+            };
         }
 
         public async Task<byte[]> EncryptWithPasswordAsync(byte[] data, string password)
@@ -293,6 +293,21 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             {
                 return null;
             }
+        }
+
+        public Task<byte[]> DecryptAsync(EncryptionResult encryptionResult)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<byte[]> DecryptWithPasswordAsync(byte[] encryptedBytes, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> DecryptWithPasswordAsync(string data, string password)
+        {
+            throw new NotImplementedException();
         }
     }
 }
