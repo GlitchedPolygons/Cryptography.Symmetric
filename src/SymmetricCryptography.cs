@@ -295,17 +295,17 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             }
         }
 
-        public Task<byte[]> DecryptAsync(EncryptionResult encryptionResult)
+        public async Task<byte[]> DecryptAsync(EncryptionResult encryptionResult)
         {
             throw new NotImplementedException();
         }
 
-        public Task<byte[]> DecryptWithPasswordAsync(byte[] encryptedBytes, string password)
+        public async Task<byte[]> DecryptWithPasswordAsync(byte[] encryptedBytes, string password)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> DecryptWithPasswordAsync(string data, string password)
+        public async Task<string> DecryptWithPasswordAsync(string data, string password)
         {
             throw new NotImplementedException();
         }

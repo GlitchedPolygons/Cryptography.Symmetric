@@ -25,7 +25,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
     {
         private readonly ISymmetricCryptography crypto = new SymmetricCryptography();
         private readonly string text = File.ReadAllText("TestData/LoremIpsum.txt");
-        private readonly byte[] data = new byte[] {1, 2, 3, 64, 128, 1, 3, 3, 7, 6, 9, 4, 2, 0, 1, 9, 9, 6, 58, 67, 55, 100, 96};
+        private readonly byte[] data = new byte[] { 1, 2, 3, 64, 128, 1, 3, 3, 7, 6, 9, 4, 2, 0, 1, 9, 9, 6, 58, 67, 55, 100, 96 };
 
         private const string ENCRYPTION_PW = "encryption-password_239äöü!!$°§%ç&";
         private const string WRONG_DECRYPTION_PW = "wrong-pw__5956kjnsdjkbä$öüö¨  \n  \t zzEmDkf542";
@@ -112,9 +112,9 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
         [Theory]
         [InlineData(null)]
         [InlineData(new byte[0])]
-        public void SymmetricCryptography_EncryptNullOrEmptyBytes_ReturnsEmptyBytesArray(byte[] data)
+        public void SymmetricCryptography_EncryptNullOrEmptyBytes_ReturnsEmptyBytesArray(byte[] d)
         {
-            byte[] encr = crypto.EncryptWithPassword(data, ENCRYPTION_PW);
+            byte[] encr = crypto.EncryptWithPassword(d, ENCRYPTION_PW);
             Assert.Empty(encr);
         }
 
