@@ -265,6 +265,26 @@ namespace Tests
 
             encr = crypto.EncryptWithPassword(d, ENCRYPTION_PW);
             Assert.Empty(encr);
+
+            var t = crypto.Encrypt(d);
+            Assert.True(t.IsEmpty());
+
+            t = await crypto.EncryptAsync(d);
+            Assert.True(t.IsEmpty());
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData(new byte[0])]
+        public async Task SymmetricCryptography_DecryptNullOrEmptyBytes_ReturnsEmptyBytesArray(byte[] d)
+        {
+            byte[] decr;
+
+            decr = await crypto.DecryptWithPasswordAsync(d, ENCRYPTION_PW);
+            Assert.Empty(decr);
+
+            decr = crypto.DecryptWithPassword(d, ENCRYPTION_PW);
+            Assert.Empty(decr);
         }
 
         [Fact]
@@ -317,6 +337,20 @@ namespace Tests
             Assert.Empty(decr);
 
             decr = crypto.Decrypt(null);
+            Assert.Empty(decr);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public async Task SymmetricCryptography_DecryptUsingNullOrEmptyDataString_ReturnsEmptyString(string d)
+        {
+            string decr;
+
+            decr = await crypto.DecryptWithPasswordAsync(d, ENCRYPTION_PW);
+            Assert.Empty(decr);
+
+            decr = crypto.DecryptWithPassword(d, ENCRYPTION_PW);
             Assert.Empty(decr);
         }
 
