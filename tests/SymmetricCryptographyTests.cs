@@ -352,5 +352,30 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
                 Assert.Null(decr);
             }
         }
+        
+        [Fact]
+        public void EncryptionResult_Dispose_ActuallyOverwritesDataWithZeroes()
+        {
+            foreach (byte[] testBinary in binaryTests)
+            {
+                var encryptionResult = crypto.Encrypt(testBinary);
+                
+                Assert.NotNull(encryptionResult.IV);
+                Assert.NotNull(encryptionResult.Key);
+                Assert.NotNull(encryptionResult.EncryptedData);
+                
+                encryptionResult.Dispose();
+
+                for (int i = encryptionResult.IV.Length - 1; i >= 0; i--)
+                {
+                    Assert.Equal(0, encryptionResult.IV[i]);
+                }
+                
+                for (int i = encryptionResult.Key.Length - 1; i >= 0; i--)
+                {
+                    Assert.Equal(0, encryptionResult.Key[i]);
+                }
+            }
+        }
     }
 }
