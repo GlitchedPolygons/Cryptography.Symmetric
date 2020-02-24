@@ -14,12 +14,12 @@
    limitations under the License.
 */
 
-using System.Collections.Generic;
+using Xunit;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using GlitchedPolygons.Services.Cryptography.Symmetric;
-using Xunit;
 
 namespace Tests
 {
@@ -388,6 +388,22 @@ namespace Tests
                 {
                     Assert.Equal(0, encryptionResult.Key[i]);
                 }
+            }
+
+            foreach (byte[] testBinary in binaryTests)
+            {
+                var encryptionResult = crypto.Encrypt(testBinary);
+
+                Assert.NotNull(encryptionResult.IV);
+                Assert.NotNull(encryptionResult.Key);
+                Assert.NotNull(encryptionResult.EncryptedData);
+
+                encryptionResult.Dispose();
+                encryptionResult.EncryptedData = null;
+                encryptionResult.IV = null;
+                encryptionResult.Key = null;
+
+                Assert.True(encryptionResult.IsEmpty());
             }
         }
         
