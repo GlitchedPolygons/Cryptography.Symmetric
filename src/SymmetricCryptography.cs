@@ -316,17 +316,21 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 salt[i] = encryptedBytes[i];
             }
 
-            var aes = new AesManaged();
-            var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+            AesManaged aes = null;
+            Rfc2898DeriveBytes rfc = null;
 
             try
             {
-                aes.KeySize = 256;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-
-                aes.IV = rfc.GetBytes(16);
-                aes.Key = rfc.GetBytes(32);
+                rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+                
+                aes = new AesManaged
+                {
+                    KeySize = 256,
+                    Mode = CipherMode.CBC,
+                    Padding = PaddingMode.PKCS7,
+                    IV = rfc.GetBytes(16),
+                    Key = rfc.GetBytes(32)
+                };
 
                 using ICryptoTransform decryptor = aes.CreateDecryptor();
                 
@@ -338,8 +342,8 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             }
             finally
             {
-                aes.Dispose();
-                rfc.Dispose();
+                aes?.Dispose();
+                rfc?.Dispose();
             }
 
             return decryptedBytes;
@@ -403,7 +407,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 
                 await using var cryptoStream = new CryptoStream(input, decryptor, CryptoStreamMode.Read);
                 await cryptoStream.CopyToAsync(output).ConfigureAwait(false);
-                cryptoStream.FlushFinalBlock();
+                await cryptoStream.FlushAsync();
                 
                 result = output.ToArray();
             }
@@ -411,6 +415,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             {
                 result = null;
             }
+            
             return result;
         }
 
@@ -441,23 +446,24 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
             await using var output = new MemoryStream(encryptedBytesLength);
             await using var input = new MemoryStream(encryptedBytes, 32, encryptedBytesLength - 32);
             
-            using var aes = new AesManaged();
-            using var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
-            
             try
             {
-                aes.KeySize = 256;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-
-                aes.IV = rfc.GetBytes(16);
-                aes.Key = rfc.GetBytes(32);
-
+                using var rfc = new Rfc2898DeriveBytes(password, salt, RFC_ITERATIONS);
+                
+                using var aes = new AesManaged
+                {
+                    KeySize = 256,
+                    Mode = CipherMode.CBC,
+                    Padding = PaddingMode.PKCS7,
+                    IV = rfc.GetBytes(16),
+                    Key = rfc.GetBytes(32)
+                };
+                
                 using ICryptoTransform decryptor = aes.CreateDecryptor();
                 
                 await using var cryptoStream = new CryptoStream(input, decryptor, CryptoStreamMode.Read);
                 await cryptoStream.CopyToAsync(output).ConfigureAwait(false);
-                cryptoStream.FlushFinalBlock();
+                await cryptoStream.FlushAsync();
                 
                 result = output.ToArray();
             }
