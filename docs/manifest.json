@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult.html",
-          "hash": "KzKxlmLPYnsYa3ZOzEQutQ=="
+          "hash": "pQ1I3id72wK0jziwb6UupQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html",
-          "hash": "UZRmCJDr+IQUW+tP1PYMeg=="
+          "hash": "/SbkhLRKisI+PGDbkKp9cg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html",
-          "hash": "aMfkMIkfaEvtC3rSMNVfoA=="
+          "hash": "vX9d1JjPsBwnPbYps1hRwQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,7 +48,7 @@
           "hash": "vIIa8qFJkIE3tNm++u2qpQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -60,10 +60,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "EE2UW7RJHOx8jJm6RLz4Jg=="
+          "hash": "UuilEVsfXKqre9nf/en5ZQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -84,10 +84,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "z+iyaAiUujO6eENEjfiobQ=="
+          "hash": "n8rU/E5Cg970rrG+fPcEcg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -111,10 +111,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "tvHoSlwHIQcMFdCH+PYAEQ=="
+          "hash": "YtGmmzDBUt4XMyjbRMjtDg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -133,12 +133,10 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -149,23 +147,23 @@
           "skipped_file_count": 0
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 0
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 4,
-          "skipped_file_count": 0
+          "skipped_file_count": 4
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
