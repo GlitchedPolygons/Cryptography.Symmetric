@@ -1,5 +1,5 @@
 /*
-   Copyright 2019 Raphael Beck
+   Copyright 2020 Raphael Beck
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -72,6 +72,6 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
         /// <summary>
         /// Gets a new empty <see cref="EncryptionResult"/> instance.
         /// </summary>
-        public static EncryptionResult Empty => new EncryptionResult {Key = null, IV = null, EncryptedData = null};
+        public static EncryptionResult Empty => new EncryptionResult { Key = null, IV = null, EncryptedData = null };
     }
 }

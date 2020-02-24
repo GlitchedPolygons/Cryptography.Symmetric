@@ -17,7 +17,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Glitched Polygons</Authors>
         <AssemblyName>GlitchedPolygons.Services.Cryptography.Symmetric</AssemblyName>
@@ -26,11 +26,14 @@
         <Title>GlitchedPolygons.Services.Cryptography.Symmetric</Title>
         <Description>IoC friendly C# .netstandard2.0 library for symmetric cryptographic operations.</Description>
         <PackageProjectUrl>https://github.com/GlitchedPolygons/Cryptography.Symmetric.git</PackageProjectUrl>
+        <PackageVersion>2.0.0</PackageVersion>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <RepositoryUrl>https://github.com/GlitchedPolygons/Cryptography.Symmetric.git</RepositoryUrl>
         <PackageTags>c# aes symmetric encryption using password key string byte[] bytes decrypt easy ioc di</PackageTags>
-        <PackageVersion>1.0.1</PackageVersion>
+        <RepositoryUrl>https://github.com/GlitchedPolygons/Cryptography.Symmetric.git</RepositoryUrl>
+        <LangVersion>8</LangVersion>
+        <FileVersion>2.0.0</FileVersion>
+        <AssemblyVersion>2.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -47,7 +50,7 @@
 </PropertyGroup>
 
 <ItemGroup>
-  <None Include="icon.png" Pack="true" PackagePath="\"/>
+  <None Include="icon.png" Pack="true" PackagePath="\" />
 </ItemGroup>
 
 </Project>

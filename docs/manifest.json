@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/git/glitched-polygons/nuget/Cryptography.Symmetric/docs/docfx_project",
+  "source_base_path": "C:/git/gp/nuget/Cryptography.Symmetric/docs/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult.html",
-          "hash": "MetOpDkQmz63XQ6ap+TnEw=="
+          "hash": "KzKxlmLPYnsYa3ZOzEQutQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -21,40 +21,34 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html",
-          "hash": "Mw2j6Lm62jf6+gvj1OneRQ=="
+          "hash": "UZRmCJDr+IQUW+tP1PYMeg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.yml",
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html",
-          "hash": "7dfMxXSFTP5e3mOFT41fnA=="
+          "hash": "aMfkMIkfaEvtC3rSMNVfoA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.yml",
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.Cryptography.Symmetric.html",
-          "hash": "U0pAxDNajivCO8wMgH7axw=="
+          "hash": "vIIa8qFJkIE3tNm++u2qpQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -66,10 +60,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "UuilEVsfXKqre9nf/en5ZQ=="
+          "hash": "EE2UW7RJHOx8jJm6RLz4Jg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -90,10 +84,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "n8rU/E5Cg970rrG+fPcEcg=="
+          "hash": "z+iyaAiUujO6eENEjfiobQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,10 +111,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "YtGmmzDBUt4XMyjbRMjtDg=="
+          "hash": "tvHoSlwHIQcMFdCH+PYAEQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -139,37 +133,39 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 4,
-          "skipped_file_count": 4
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
         }
       }
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

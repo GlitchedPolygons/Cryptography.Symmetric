@@ -20,7 +20,7 @@ The `ISymmetricCryptography` interface provides functionality for all basic symm
 For more information, check out the [API Documentation](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html).
 
 **Technology used:**
-* C# ([netstandard2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md))
+* C# 8.0 ([netstandard2.1](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.1.md))
 
 ---
 

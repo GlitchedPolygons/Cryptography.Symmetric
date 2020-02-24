@@ -110,6 +110,19 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.Decrypt
   nameWithType: ISymmetricCryptography.Decrypt
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  name: DecryptAsync(EncryptionResult)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptAsync_GlitchedPolygons_Services_Cryptography_Symmetric_EncryptionResult_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  nameWithType: ISymmetricCryptography.DecryptAsync(EncryptionResult)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync*
+  name: DecryptAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptAsync
+  nameWithType: ISymmetricCryptography.DecryptAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPassword(System.Byte[],System.String)
   name: DecryptWithPassword(Byte[], String)
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptWithPassword_System_Byte___System_String_
@@ -132,6 +145,28 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPassword
   nameWithType: ISymmetricCryptography.DecryptWithPassword
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.Byte[],System.String)
+  name: DecryptWithPasswordAsync(Byte[], String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptWithPasswordAsync_System_Byte___System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.Byte[],System.String)
+  name.vb: DecryptWithPasswordAsync(Byte(), String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.Byte[], System.String)
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.Byte(), System.String)
+  nameWithType: ISymmetricCryptography.DecryptWithPasswordAsync(Byte[], String)
+  nameWithType.vb: ISymmetricCryptography.DecryptWithPasswordAsync(Byte(), String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.String,System.String)
+  name: DecryptWithPasswordAsync(String, String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptWithPasswordAsync_System_String_System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.String,System.String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync(System.String, System.String)
+  nameWithType: ISymmetricCryptography.DecryptWithPasswordAsync(String, String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync*
+  name: DecryptWithPasswordAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_DecryptWithPasswordAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.DecryptWithPasswordAsync
+  nameWithType: ISymmetricCryptography.DecryptWithPasswordAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.Encrypt(System.Byte[])
   name: Encrypt(Byte[])
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_Encrypt_System_Byte___
@@ -148,6 +183,22 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.Encrypt
   nameWithType: ISymmetricCryptography.Encrypt
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync(System.Byte[])
+  name: EncryptAsync(Byte[])
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptAsync_System_Byte___
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync(System.Byte[])
+  name.vb: EncryptAsync(Byte())
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync(System.Byte[])
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync(System.Byte())
+  nameWithType: ISymmetricCryptography.EncryptAsync(Byte[])
+  nameWithType.vb: ISymmetricCryptography.EncryptAsync(Byte())
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync*
+  name: EncryptAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptAsync
+  nameWithType: ISymmetricCryptography.EncryptAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPassword(System.Byte[],System.String)
   name: EncryptWithPassword(Byte[], String)
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptWithPassword_System_Byte___System_String_
@@ -170,6 +221,28 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPassword
   nameWithType: ISymmetricCryptography.EncryptWithPassword
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.Byte[],System.String)
+  name: EncryptWithPasswordAsync(Byte[], String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptWithPasswordAsync_System_Byte___System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.Byte[],System.String)
+  name.vb: EncryptWithPasswordAsync(Byte(), String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.Byte[], System.String)
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.Byte(), System.String)
+  nameWithType: ISymmetricCryptography.EncryptWithPasswordAsync(Byte[], String)
+  nameWithType.vb: ISymmetricCryptography.EncryptWithPasswordAsync(Byte(), String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.String,System.String)
+  name: EncryptWithPasswordAsync(String, String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptWithPasswordAsync_System_String_System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.String,System.String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync(System.String, System.String)
+  nameWithType: ISymmetricCryptography.EncryptWithPasswordAsync(String, String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync*
+  name: EncryptWithPasswordAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_ISymmetricCryptography_EncryptWithPasswordAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.ISymmetricCryptography.EncryptWithPasswordAsync
+  nameWithType: ISymmetricCryptography.EncryptWithPasswordAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography
   name: SymmetricCryptography
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html
@@ -189,6 +262,19 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.Decrypt
   nameWithType: SymmetricCryptography.Decrypt
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  name: DecryptAsync(EncryptionResult)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptAsync_GlitchedPolygons_Services_Cryptography_Symmetric_EncryptionResult_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync(GlitchedPolygons.Services.Cryptography.Symmetric.EncryptionResult)
+  nameWithType: SymmetricCryptography.DecryptAsync(EncryptionResult)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync*
+  name: DecryptAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptAsync
+  nameWithType: SymmetricCryptography.DecryptAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPassword(System.Byte[],System.String)
   name: DecryptWithPassword(Byte[], String)
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptWithPassword_System_Byte___System_String_
@@ -211,6 +297,28 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPassword
   nameWithType: SymmetricCryptography.DecryptWithPassword
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.Byte[],System.String)
+  name: DecryptWithPasswordAsync(Byte[], String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptWithPasswordAsync_System_Byte___System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.Byte[],System.String)
+  name.vb: DecryptWithPasswordAsync(Byte(), String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.Byte[], System.String)
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.Byte(), System.String)
+  nameWithType: SymmetricCryptography.DecryptWithPasswordAsync(Byte[], String)
+  nameWithType.vb: SymmetricCryptography.DecryptWithPasswordAsync(Byte(), String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.String,System.String)
+  name: DecryptWithPasswordAsync(String, String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptWithPasswordAsync_System_String_System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.String,System.String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync(System.String, System.String)
+  nameWithType: SymmetricCryptography.DecryptWithPasswordAsync(String, String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync*
+  name: DecryptWithPasswordAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_DecryptWithPasswordAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.DecryptWithPasswordAsync
+  nameWithType: SymmetricCryptography.DecryptWithPasswordAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.Encrypt(System.Byte[])
   name: Encrypt(Byte[])
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_Encrypt_System_Byte___
@@ -227,6 +335,22 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.Encrypt
   nameWithType: SymmetricCryptography.Encrypt
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync(System.Byte[])
+  name: EncryptAsync(Byte[])
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptAsync_System_Byte___
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync(System.Byte[])
+  name.vb: EncryptAsync(Byte())
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync(System.Byte[])
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync(System.Byte())
+  nameWithType: SymmetricCryptography.EncryptAsync(Byte[])
+  nameWithType.vb: SymmetricCryptography.EncryptAsync(Byte())
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync*
+  name: EncryptAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptAsync
+  nameWithType: SymmetricCryptography.EncryptAsync
 - uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPassword(System.Byte[],System.String)
   name: EncryptWithPassword(Byte[], String)
   href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptWithPassword_System_Byte___System_String_
@@ -249,3 +373,25 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPassword
   nameWithType: SymmetricCryptography.EncryptWithPassword
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.Byte[],System.String)
+  name: EncryptWithPasswordAsync(Byte[], String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptWithPasswordAsync_System_Byte___System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.Byte[],System.String)
+  name.vb: EncryptWithPasswordAsync(Byte(), String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.Byte[], System.String)
+  fullName.vb: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.Byte(), System.String)
+  nameWithType: SymmetricCryptography.EncryptWithPasswordAsync(Byte[], String)
+  nameWithType.vb: SymmetricCryptography.EncryptWithPasswordAsync(Byte(), String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.String,System.String)
+  name: EncryptWithPasswordAsync(String, String)
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptWithPasswordAsync_System_String_System_String_
+  commentId: M:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.String,System.String)
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync(System.String, System.String)
+  nameWithType: SymmetricCryptography.EncryptWithPasswordAsync(String, String)
+- uid: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync*
+  name: EncryptWithPasswordAsync
+  href: api/GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.html#GlitchedPolygons_Services_Cryptography_Symmetric_SymmetricCryptography_EncryptWithPasswordAsync_
+  commentId: Overload:GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.Cryptography.Symmetric.SymmetricCryptography.EncryptWithPasswordAsync
+  nameWithType: SymmetricCryptography.EncryptWithPasswordAsync
