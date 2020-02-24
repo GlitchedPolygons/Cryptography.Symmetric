@@ -377,5 +377,16 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
                 }
             }
         }
+        
+        [Fact]
+        public void EncryptionResult_IsEmpty_ReturnsTrueIfEmptyFalseIfNot()
+        {
+            Assert.True(EncryptionResult.Empty.IsEmpty());
+            foreach (byte[] testBinary in binaryTests)
+            {
+                var encryptionResult = crypto.Encrypt(testBinary);
+                Assert.False(encryptionResult.IsEmpty());
+            }
+        }
     }
 }
