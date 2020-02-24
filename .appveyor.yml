@@ -7,8 +7,8 @@ before_build:
 - choco install opencover.portable
 - choco install codecov
 build_script:
-- cd src && dotnet build -c Release && cd ..
+- cd src && dotnet build -c Debug && cd ..
 test_script:
-- cd tests && dotnet add package Appveyor.TestLogger --version 2.0.0 && dotnet restore && dotnet test --test-adapter-path:. --logger:Appveyor
-- OpenCover.Console.exe -register:user -target:"dotnet.exe" -targetargs:test -filter:"+[GlitchedPolygons.Services.Cryptography.Symmetric*]* -[GlitchedPolygons.Services.Cryptography.Symmetric.Tests*]*" -output:".\coverage.xml" -oldstyle
-- codecov -f "coverage.xml"
+- cd tests && dotnet build -c Debug && dotnet add package Appveyor.TestLogger --version 2.0.0 && dotnet restore && dotnet test --test-adapter-path:. --logger:Appveyor
+- OpenCover.Console.exe -register:user -target:"dotnet.exe" -targetargs:test -filter:"+[GlitchedPolygons.Services.Cryptography.Symmetric*]* -[Tests*]*" -output:".\coverage.xml" -oldstyle
+- codecov -f ".\coverage.xml"

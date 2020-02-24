@@ -14,12 +14,14 @@
    limitations under the License.
 */
 
-using Xunit;
-using System.IO;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using GlitchedPolygons.Services.Cryptography.Symmetric;
+using Xunit;
 
-namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
+namespace Tests
 {
     public class SymmetricCryptographyTests
     {
@@ -32,7 +34,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
             "extr",
             "extremely short string",
             "...",
-            "sP€$haL chAräkkteRzz m8 *ç%%%&ç/+\"*çäöü]][{}] \\  \t       \n \r  \r\t\nn yeeaH 99=='''^^^3'^'2^'3äö$$¨ !1154/1§§°°"
+            "sP€$haL chAräkkteRzz m8 *ç%%%&ç/+\"*çäöü]][{}] \\  \t       \n \r  \r\t \nn yeeaH 99=='''^^^3'^'2^'3äö$$¨ !1154/1§§°°"
         };
 
         private readonly IEnumerable<byte[]> binaryTests = new[]
@@ -44,6 +46,11 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
 
         private const string ENCRYPTION_PW = "Encryption-Password_239äöü!!$°§%ç=?¨]]_\"&  &/|?´~^";
         private const string WRONG_DECRYPTION_PW = "wrong-PW__5956kjnsdjkbä$öüö¨  \n  \t zzEmDkf542";
+
+        public SymmetricCryptographyTests()
+        {
+            ThreadPool.SetMaxThreads(1, 1);
+        }
 
         [Fact]
         public async Task SymmetricCryptography_EncryptStringUsingPw_DecryptStringUsingPw_IdenticalAfterwards()
@@ -103,7 +110,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
 
                 Assert.NotEqual(testText, decr);
                 Assert.Null(decr);
-
+                
                 encr = crypto.EncryptWithPassword(testText, ENCRYPTION_PW);
                 decr = await crypto.DecryptWithPasswordAsync(encr, WRONG_DECRYPTION_PW);
 
@@ -111,6 +118,12 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric.Tests
                 Assert.Null(decr);
 
                 encr = await crypto.EncryptWithPasswordAsync(testText, ENCRYPTION_PW);
+                decr = crypto.DecryptWithPassword(encr, WRONG_DECRYPTION_PW);
+
+                Assert.NotEqual(testText, decr);
+                Assert.Null(decr);
+                
+                encr = crypto.EncryptWithPassword(testText, ENCRYPTION_PW);
                 decr = crypto.DecryptWithPassword(encr, WRONG_DECRYPTION_PW);
 
                 Assert.NotEqual(testText, decr);
