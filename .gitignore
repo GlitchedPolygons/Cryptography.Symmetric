@@ -149,6 +149,9 @@ rcf/
 *.ldf
 *.ndf
 
+# CodeCov
+coverage.xml
+
 # Microsoft Fakes
 FakesAssemblies/
 
