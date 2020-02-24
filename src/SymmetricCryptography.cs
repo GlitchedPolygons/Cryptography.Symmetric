@@ -463,7 +463,7 @@ namespace GlitchedPolygons.Services.Cryptography.Symmetric
                 
                 await using var cryptoStream = new CryptoStream(input, decryptor, CryptoStreamMode.Read);
                 await cryptoStream.CopyToAsync(output).ConfigureAwait(false);
-                await cryptoStream.FlushAsync();
+                await cryptoStream.FlushAsync().ConfigureAwait(false);
                 
                 result = output.ToArray();
             }
