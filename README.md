@@ -1,7 +1,15 @@
+> [!IMPORTANT]
+>
+> # **NOTICE:**
+>
+> ## Development of this project has been migrated to: https://codeberg.org/GlitchedPolygons/Cryptography.Symmetric
+>
+> ## All pull requests and issues on GitHub will be ignored from the 16th of August, 2025 onwards.
+
 | Status |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [![NuGet](https://buildstats.info/nuget/GlitchedPolygons.Services.Cryptography.Symmetric)](https://www.nuget.org/packages/GlitchedPolygons.Services.Cryptography.Symmetric)                                                                                                                                                                                                                                                                                                                                            |
-| [![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html) [![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://github.com/GlitchedPolygons/Cryptography.Symmetric/blob/master/LICENSE)                                                                                                                                                                   |
+| [![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/Cryptography.Symmetric/api/GlitchedPolygons.Services.Cryptography.Symmetric.html) [![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://codeberg.org/GlitchedPolygons/Cryptography.Symmetric/src/branch/master/LICENSE)                                                                                                                                                                   |
 | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc23185ef139457ca9a7124fc581a492)](https://www.codacy.com/manual/GlitchedPolygons/Cryptography.Symmetric?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=GlitchedPolygons/Cryptography.Symmetric&amp;amp;utm_campaign=Badge_Grade) [![CodeCov](https://codecov.io/gh/GlitchedPolygons/Cryptography.Symmetric/branch/master/graph/badge.svg)](https://codecov.io/gh/GlitchedPolygons/Cryptography.Symmetric)                          |
 | [![AppVeyor](https://ci.appveyor.com/api/projects/status/jbj097s3ik1y3hwp/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/cryptography-symmetric/branch/master) [![Travis](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/Cryptography.Symmetric) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/Cryptography.Symmetric) |
 
